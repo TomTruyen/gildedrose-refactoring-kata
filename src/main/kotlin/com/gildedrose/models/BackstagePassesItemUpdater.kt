@@ -8,9 +8,9 @@ class BackstagePassesItemUpdater: ItemUpdater() {
         super.update(item)
 
         val increase = when(item.sellIn) {
-            in 0..4 -> 3
-            in 5..9 -> 2
-            in 10..Int.MAX_VALUE -> 1
+            in 0..5 -> 3
+            in 6..10 -> 2
+            in 11..Int.MAX_VALUE -> 1
             else -> -item.quality
         }
 
