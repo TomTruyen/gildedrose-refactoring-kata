@@ -1,10 +1,16 @@
 # Gilded Rose starting position in Kotlin
 
-## Run the Text Fixture from Command-Line
+Glided Rose Refactoring by Tom Truyen
 
-```
-./gradlew -q text
-```
+Way of working:
+1. Write Unit Tests for existing code to make sure nothing breaks
+2. Looking at code, noticing multiple types of items all with different logic
+3. Extract logic to an Item specific class
+4. Abstract the code by making an interface/base class to define what an "ItemUpdater" should look like
+5. Create a list (enum) of possible item types
+6. Create a Factory to create an instace of the correct Item specific class based on the input
+7. Write tests for new code
+8. Implement new code
 
 ### Specify Number of Days
 
@@ -13,11 +19,3 @@ For e.g. 10 days:
 ```
 ./gradlew run --args 10
 ```
-
-You should make sure the gradle commands shown above work when you execute them in a terminal before trying to use TextTest (see below).
-
-
-## Run the TextTest approval test that comes with this project
-
-There are instructions in the [TextTest Readme](../texttests/README.md) for setting up TextTest. What's unusual for the Java version is there are two executables listed in [config.gr](../texttests/config.gr) for Java. One uses Gradle wrapped in a python script, the other relies on your CLASSPATH being set correctly in [environment.gr](../texttests/environment.gr).
-
