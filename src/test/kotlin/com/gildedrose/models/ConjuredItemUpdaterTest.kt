@@ -43,4 +43,17 @@ internal class ConjuredItemUpdaterTest {
         // Then
         assertEquals(9, item.sellIn)
     }
+
+    @Test
+    fun `test quality of an item is never negative`() {
+        // Given
+        val item = Item("Conjured Mana Cake", 10, 0)
+        val conjuredItemUpdater = ConjuredItemUpdater()
+
+        // When
+        conjuredItemUpdater.update(item)
+
+        // Then
+        assertEquals(0, item.quality)
+    }
 }

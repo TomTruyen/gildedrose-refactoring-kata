@@ -45,6 +45,19 @@ internal class BackstagePassesItemUpdaterTest {
     }
 
     @Test
+    fun `test quality drops to 0 when sellIn is less than 0`() {
+        // Given
+        val item = Item("Backstage passes to a TAFKAL80ETC concert", 0, 10)
+        val backstackPassesItemUpdater = BackstagePassesItemUpdater()
+
+        // When
+        backstackPassesItemUpdater.update(item)
+
+        // Then
+        assertEquals(0, item.quality)
+    }
+
+    @Test
     fun `test should decrease sellIn by 1`() {
         // Given
         val item = Item("Backstage passes to a TAFKAL80ETC concert", 10, 10)
@@ -55,5 +68,18 @@ internal class BackstagePassesItemUpdaterTest {
 
         // Then
         assertEquals(9, item.sellIn)
+    }
+
+    @Test
+    fun `test quality of an item is never negative`() {
+        // Given
+        val item = Item("Backstage passes to a TAFKAL80ETC concert", 10, 0)
+        val backstackPassesItemUpdater = BackstagePassesItemUpdater()
+
+        // When
+        backstackPassesItemUpdater.update(item)
+
+        // Then
+        assertEquals(0, item.quality)
     }
 }

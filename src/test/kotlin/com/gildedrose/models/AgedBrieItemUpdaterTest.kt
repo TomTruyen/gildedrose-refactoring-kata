@@ -43,4 +43,17 @@ internal class AgedBrieItemUpdaterTest {
         // Then
         assertEquals(9, item.sellIn)
     }
+
+    @Test
+    fun `test quality of an item is never more than 50`() {
+        // Given
+        val item = Item("Aged Brie", 10, 50)
+        val agedBrieItemUpdater = AgedBrieItemUpdater()
+
+        // When
+        agedBrieItemUpdater.update(item)
+
+        // Then
+        assertEquals(50, item.quality)
+    }
 }
