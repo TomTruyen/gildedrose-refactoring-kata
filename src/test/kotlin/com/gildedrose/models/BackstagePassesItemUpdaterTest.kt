@@ -71,15 +71,15 @@ internal class BackstagePassesItemUpdaterTest {
     }
 
     @Test
-    fun `test quality of an item is never negative`() {
+    fun `test quality of an item is never more than 50`() {
         // Given
-        val item = Item("Backstage passes to a TAFKAL80ETC concert", 10, 0)
+        val item = Item("Backstage passes to a TAFKAL80ETC concert", 10, 50)
         val backstackPassesItemUpdater = BackstagePassesItemUpdater()
 
         // When
         backstackPassesItemUpdater.update(item)
 
         // Then
-        assertEquals(0, item.quality)
+        assertEquals(50, item.quality)
     }
 }
