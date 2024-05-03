@@ -32,7 +32,7 @@ internal class ConjuredItemUpdaterTest {
     }
 
     @Test
-    fun `should decrease sellIn by 1`() {
+    fun `test should decrease sellIn by 1`() {
         // Given
         val item = Item("Conjured Mana Cake", 10, 10)
         val conjuredItemUpdater = ConjuredItemUpdater()
