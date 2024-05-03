@@ -1,12 +1,13 @@
 package com.gildedrose
 
 import com.gildedrose.factory.ItemUpdaterFactory
+import com.gildedrose.factory.ItemUpdaterFactoryImpl
 
 class GildedRose(
     private var items: List<Item>
 ) {
-    private val factory by lazy {
-        ItemUpdaterFactory()
+    private val factory: ItemUpdaterFactory by lazy {
+        ItemUpdaterFactoryImpl()
     }
 
     fun updateQuality() {
