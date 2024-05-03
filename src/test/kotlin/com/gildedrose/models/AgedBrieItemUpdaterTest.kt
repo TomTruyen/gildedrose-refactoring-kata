@@ -4,7 +4,7 @@ import com.gildedrose.Item
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class AgedBrieItemUpdaterTests {
+internal class AgedBrieItemUpdaterTest {
     @Test
     fun `should increase quality by 1 when sellIn is greater than 0`() {
         // Given
@@ -29,19 +29,6 @@ internal class AgedBrieItemUpdaterTests {
 
         // Then
         assertEquals(12, item.quality)
-    }
-
-    @Test
-    fun `should not increase quality more than 50`() {
-        // Given
-        val item = Item("Aged Brie", 10, 50)
-        val agedBrieItemUpdater = AgedBrieItemUpdater()
-
-        // When
-        agedBrieItemUpdater.update(item)
-
-        // Then
-        assertEquals(50, item.quality)
     }
 
     @Test

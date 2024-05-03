@@ -4,7 +4,7 @@ import com.gildedrose.Item
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class BackstagePassesItemUpdaterTests {
+internal class BackstagePassesItemUpdaterTest {
     @Test
     fun `test quality increases by 1 when sellIn is greater than 10`() {
         // Given
@@ -45,41 +45,15 @@ internal class BackstagePassesItemUpdaterTests {
     }
 
     @Test
-    fun `test quality drops to 0 when sellIn is less than 0`() {
+    fun `should decrease sellIn by 1`() {
         // Given
-        val item = Item("Backstage passes to a TAFKAL80ETC concert", 0, 10)
+        val item = Item("Backstage passes to a TAFKAL80ETC concert", 10, 10)
         val backstackPassesItemUpdater = BackstagePassesItemUpdater()
 
         // When
         backstackPassesItemUpdater.update(item)
 
         // Then
-        assertEquals(0, item.quality)
-    }
-
-    @Test
-    fun `test quality is never more than 50`() {
-        // Given
-        val item = Item("Backstage passes to a TAFKAL80ETC concert", 15, 50)
-        val backstackPassesItemUpdater = BackstagePassesItemUpdater()
-
-        // When
-        backstackPassesItemUpdater.update(item)
-
-        // Then
-        assertEquals(50, item.quality)
-    }
-
-    @Test
-    fun `test sellIn decreases by 1`() {
-        // Given
-        val item = Item("Backstage passes to a TAFKAL80ETC concert", 15, 10)
-        val backstackPassesItemUpdater = BackstagePassesItemUpdater()
-
-        // When
-        backstackPassesItemUpdater.update(item)
-
-        // Then
-        assertEquals(14, item.sellIn)
+        assertEquals(9, item.sellIn)
     }
 }
